@@ -51,4 +51,16 @@ public class Pokedex {
         return ListaPokemon.remove(buscarPokemon(n));
     }
 
+    public void ordenar(){
+        ListaPokemon.sort(null);
+    }
+
+    @Override
+    public String toString() {
+        String texto = "";
+        for (Pokemon pok : ListaPokemon){
+            texto+= pok.toString()+"\n";
+        }
+        return texto;
+    }
 }
