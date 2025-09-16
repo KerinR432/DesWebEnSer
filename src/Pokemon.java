@@ -1,0 +1,56 @@
+public class Pokemon implements Comparable<Pokemon>{
+    private String nombre;
+    private int codigo;
+    private String tipo;
+
+    public Pokemon (){
+        this.nombre = "";
+        this.codigo = 0;
+        this.tipo = "";
+    }
+
+    public Pokemon(String nombre,int codigo,String tipo){
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.tipo = tipo;
+
+    }
+
+    //getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    //setters
+
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+
+    public String toString(){
+        return "codigo : "+codigo+"\n"+"Nombre : "+nombre+"\n"+"Tipo : "+tipo;
+    }
+
+    @Override
+    public int compareTo(Pokemon o) {
+        return this.getNombre().compareTo(o.getNombre());
+    }
+}
