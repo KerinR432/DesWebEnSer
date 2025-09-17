@@ -15,6 +15,8 @@ public class main {
 //        System.out.println(pok.eliminarPokemon(n));
 //        System.out.println(pok.buscarPokemon(n));
 //        pok.ordenarAlphabletico();
+
+        // aqui estamos mostrando las disntitas listas, set y map
         System.out.println("-!-!-!-LIST-!-!-!-");
         System.out.println(pok.listaPokemon);
         System.out.println("--------------------------------------------");
