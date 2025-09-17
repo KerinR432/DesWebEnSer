@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Pokemon implements Comparable<Pokemon>{
     private String nombre;
     private int codigo;
@@ -49,8 +51,21 @@ public class Pokemon implements Comparable<Pokemon>{
         return "codigo : "+codigo+"\n"+"Nombre : "+nombre+"\n"+"Tipo : "+tipo;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Pokemon pokemon = (Pokemon) o;
+        return codigo == pokemon.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre,codigo);
+    }
+
     @Override
     public int compareTo(Pokemon o) {
-        return this.getNombre().compareTo(o.getNombre());
+        return this.getCodigo()-(o.getCodigo());
     }
 }
