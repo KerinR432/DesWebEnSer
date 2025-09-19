@@ -39,7 +39,6 @@ public class main {
 
         try (FileWriter fW = new FileWriter("pokemon.csv")) {
             fW.append("Pokemon,Tipo,codigo\n");
-            if (f)
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
