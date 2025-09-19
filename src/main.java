@@ -1,9 +1,12 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class main {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         Pokedex pok = new Pokedex();
+        String pokemon = " ";
         String n = "",t = "";
         int cod = 0;
         pok.RellenarLista("Charmander","fuego",001);
@@ -32,5 +35,14 @@ public class main {
         System.out.println("--------------------------------------------");
         System.out.println("-!-!-!-MOSTRAR-!-!-!-");
         System.out.println(pok.buscarPokemonMapTree(002));
+
+
+        try (FileWriter fW = new FileWriter("pokemon.csv")) {
+            fW.append("Pokemon,Tipo,codigo\n");
+            if (f)
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
