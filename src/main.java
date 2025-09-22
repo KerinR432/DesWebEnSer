@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -38,7 +40,18 @@ public class main {
 
 
         try (FileWriter fW = new FileWriter("pokemon.csv")) {
-            fW.append("Pokemon,Tipo,codigo\n");
+            fW.append("Codigo,Nombre,Tipo\n");
+            fW.append(pok.toString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try(FileReader fR = new FileReader("pokemon.csv");) {
+           while (fR.read()!=-1)
+            fR.read();
+            fR.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

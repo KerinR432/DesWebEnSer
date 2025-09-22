@@ -48,7 +48,7 @@ public class Pokemon implements Comparable<Pokemon>{
 
 
     public String toString(){
-        return "codigo : "+codigo+"\n"+"Nombre : "+nombre+"\n"+"Tipo : "+tipo;
+        return codigo+","+nombre+","+tipo;
     }
 
 
