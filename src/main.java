@@ -45,9 +45,11 @@ public class main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         try(FileReader fR = new FileReader("pokemon.csv");) {
-           while (fR.read()!=-1)
+            int i;
+            while ((i = fR.read())!=-1){
+                System.out.print((char)i);
+            }
             fR.read();
             fR.close();
         } catch (FileNotFoundException e) {
