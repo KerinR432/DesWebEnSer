@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -34,16 +36,25 @@ public class main {
         System.out.println("--------------------------------------------");
         System.out.println("-!-!-!-MOSTRAR-!-!-!-");
         System.out.println(pok.buscarPokemonMapTree(002));
-        FileWriter writer;
-        {
-            try {
-                writer = new FileWriter("Prueba.csv",true);
-                //writer.write("Nombre,Tipo, codigo\n");
-                writer.write(pok.toString()+",\n");
-                writer.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+
+        try (FileWriter fW = new FileWriter("pokemon.csv")) {
+            fW.append("Codigo,Nombre,Tipo\n");
+            fW.append(pok.toString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try(FileReader fR = new FileReader("pokemon.csv");) {
+            int i;
+            while ((i = fR.read())!=-1){
+                System.out.print((char)i);
             }
+            fR.read();
+            fR.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
+
